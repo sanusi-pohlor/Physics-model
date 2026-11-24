@@ -24,8 +24,8 @@ export const LiveTelemetryChart: React.FC<LiveTelemetryChartProps> = ({
     const h = canvas.height;
     ctx.clearRect(0, 0, w, h);
 
-    // Background Grid
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.12)';
+    // Light Theme Background Grid
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.28)';
     ctx.lineWidth = 1;
     for (let i = 1; i < 4; i++) {
       const y = (h / 4) * i;
@@ -59,7 +59,7 @@ export const LiveTelemetryChart: React.FC<LiveTelemetryChartProps> = ({
     // Draw zero baseline if in range
     if (low < 0 && high > 0) {
       const zeroY = h - ((0 - low) / (high - low)) * h;
-      ctx.strokeStyle = 'rgba(226, 232, 240, 0.25)';
+      ctx.strokeStyle = 'rgba(71, 85, 105, 0.45)';
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
       ctx.moveTo(0, zeroY);
@@ -71,7 +71,7 @@ export const LiveTelemetryChart: React.FC<LiveTelemetryChartProps> = ({
     // Plot each trace
     traces.forEach((tr) => {
       ctx.strokeStyle = tr.color;
-      ctx.lineWidth = 2.2;
+      ctx.lineWidth = 2.4;
       ctx.beginPath();
       history.forEach((pt, idx) => {
         const val = pt[tr.key] ?? 0;
@@ -87,9 +87,9 @@ export const LiveTelemetryChart: React.FC<LiveTelemetryChartProps> = ({
   const latest = history[history.length - 1] ?? {};
 
   return (
-    <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3">
+    <div className="bg-white border border-slate-200 shadow-sm rounded-xl p-3">
       <div className="flex items-center justify-between gap-2 mb-2">
-        <span className="text-xs font-semibold text-slate-300 truncate">{title}</span>
+        <span className="text-xs font-semibold text-slate-700 truncate">{title}</span>
         <div className="flex items-center gap-3 flex-wrap">
           {traces.map((tr) => (
             <div key={tr.key} className="flex items-center gap-1.5 text-[11px]">
@@ -97,8 +97,8 @@ export const LiveTelemetryChart: React.FC<LiveTelemetryChartProps> = ({
                 className="w-2.5 h-2.5 rounded-full inline-block"
                 style={{ backgroundColor: tr.color }}
               />
-              <span className="text-slate-400">{tr.label}:</span>
-              <span className="font-mono font-semibold text-slate-100">
+              <span className="text-slate-500">{tr.label}:</span>
+              <span className="font-mono font-semibold text-slate-900">
                 {(latest[tr.key] ?? 0).toFixed(1)} {tr.unit}
               </span>
             </div>
@@ -109,7 +109,7 @@ export const LiveTelemetryChart: React.FC<LiveTelemetryChartProps> = ({
         ref={canvasRef}
         width={480}
         height={135}
-        className="w-full h-[125px] bg-slate-950/70 rounded-lg border border-slate-800/80"
+        className="w-full h-[125px] bg-slate-50 rounded-lg border border-slate-200"
       />
     </div>
   );

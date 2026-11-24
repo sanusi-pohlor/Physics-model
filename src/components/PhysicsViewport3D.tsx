@@ -43,8 +43,8 @@ export const PhysicsViewport3D: React.FC<PhysicsViewport3DProps> = ({
     if (!container) return;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x050914);
-    scene.fog = new THREE.FogExp2(0x050914, 0.015);
+    scene.background = new THREE.Color(0xf8fafc);
+    scene.fog = new THREE.FogExp2(0xf8fafc, 0.012);
     sceneRef.current = scene;
 
     const camera = new THREE.PerspectiveCamera(
@@ -72,21 +72,21 @@ export const PhysicsViewport3D: React.FC<PhysicsViewport3DProps> = ({
     controls.target.set(0, 2, 0);
     controlsRef.current = controls;
 
-    // Studio Lighting
-    const ambientLight = new THREE.AmbientLight(0xdbeafe, 0.85);
+    // Bright Daylight Studio Lighting for White Theme
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.35);
     scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.4);
     dirLight.position.set(15, 25, 18);
     dirLight.castShadow = true;
     scene.add(dirLight);
 
-    const rimLight = new THREE.PointLight(0x22d3ee, 1.2, 40);
-    rimLight.position.set(-12, 8, -10);
+    const rimLight = new THREE.PointLight(0x38bdf8, 0.9, 45);
+    rimLight.position.set(-12, 10, -10);
     scene.add(rimLight);
 
-    // Reference Floor Grid
-    const grid = new THREE.GridHelper(36, 36, 0x1e293b, 0x0f172a);
+    // Clean Light Reference Floor Grid
+    const grid = new THREE.GridHelper(36, 36, 0x94a3b8, 0xe2e8f0);
     grid.position.y = -0.02;
     scene.add(grid);
 

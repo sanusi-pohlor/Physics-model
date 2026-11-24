@@ -171,49 +171,49 @@ export const App: React.FC = () => {
   const getCategoryIcon = (cat: CategoryId) => {
     switch (cat) {
       case 'mechanics':
-        return <Compass className="w-4 h-4 text-cyan-400" />;
+        return <Compass className="w-4 h-4 text-sky-600" />;
       case 'waves':
-        return <Waves className="w-4 h-4 text-purple-400" />;
+        return <Waves className="w-4 h-4 text-purple-600" />;
       case 'electromagnetism':
-        return <Zap className="w-4 h-4 text-amber-400" />;
+        return <Zap className="w-4 h-4 text-amber-600" />;
       case 'thermodynamics':
-        return <Flame className="w-4 h-4 text-emerald-400" />;
+        return <Flame className="w-4 h-4 text-emerald-600" />;
       case 'modern_physics':
-        return <Atom className="w-4 h-4 text-rose-400" />;
+        return <Atom className="w-4 h-4 text-rose-600" />;
     }
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 overflow-hidden select-none">
+    <div className="flex flex-col h-screen w-screen bg-slate-50 text-slate-900 overflow-hidden select-none">
       {/* Top Navbar */}
-      <header className="h-14 border-b border-slate-800/90 bg-slate-900/80 backdrop-blur-md px-4 flex items-center justify-between shrink-0 z-20">
+      <header className="h-14 border-b border-slate-200 bg-white/95 backdrop-blur-md px-4 flex items-center justify-between shrink-0 z-20 shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center shadow-md shadow-sky-500/25">
             <Atom className="w-5 h-5 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="font-bold text-base tracking-tight text-white">
+              <h1 className="font-bold text-base tracking-tight text-slate-900">
                 PhysiVerse Lab 3D
               </h1>
-              <span className="text-[11px] px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-medium">
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-semibold">
                 หลักสูตร สสวท. ม.4 - ม.6 (ครบ 20 บทเรียน)
               </span>
             </div>
-            <p className="text-[11px] text-slate-400">
+            <p className="text-[11px] text-slate-500">
               ห้องปฏิบัติการฟิสิกส์เสมือนจริง 3 มิติ พร้อมสมการไดนามิก กราฟเรียลไทม์ และภารกิจการทดลอง
             </p>
           </div>
         </div>
 
         {/* Category Filter Pills */}
-        <div className="hidden xl:flex items-center gap-1.5 bg-slate-950/80 p-1 rounded-xl border border-slate-800">
+        <div className="hidden xl:flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200">
           <button
             onClick={() => setSelectedCategory('all')}
             className={`px-2.5 py-1 rounded-lg text-xs font-medium transition ${
               selectedCategory === 'all'
-                ? 'bg-cyan-500 text-slate-950 font-semibold'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-sky-600 text-white font-semibold shadow-sm'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             ทั้งหมด (20)
@@ -224,8 +224,8 @@ export const App: React.FC = () => {
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-2.5 py-1 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
                 selectedCategory === cat.id
-                  ? 'bg-slate-800 text-white border border-slate-700'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-white text-slate-900 border border-slate-300 shadow-sm font-semibold'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               {getCategoryIcon(cat.id)}
@@ -236,10 +236,10 @@ export const App: React.FC = () => {
 
         {/* Progress Counter */}
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 bg-slate-950/90 border border-slate-800 px-3 py-1.5 rounded-xl">
-            <Award className="w-4 h-4 text-amber-400" />
-            <span className="text-xs text-slate-300">ภารกิจสำเร็จ:</span>
-            <span className="text-xs font-mono font-bold text-amber-400">
+          <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-xl">
+            <Award className="w-4 h-4 text-amber-600" />
+            <span className="text-xs text-slate-700 font-medium">ภารกิจสำเร็จ:</span>
+            <span className="text-xs font-mono font-bold text-amber-700">
               {totalCompletedCount} / {PHYSICS_MODULES.length}
             </span>
           </div>
@@ -249,10 +249,10 @@ export const App: React.FC = () => {
       {/* Main 5-Pillar Workspace Grid */}
       <div className="flex-1 flex overflow-hidden">
         {/* Left Sidebar: 20 Curriculum Modules Navigator */}
-        <aside className="w-72 border-r border-slate-800/80 bg-slate-900/50 flex flex-col shrink-0">
-          <div className="p-3 border-b border-slate-800/80 flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+        <aside className="w-72 border-r border-slate-200 bg-white flex flex-col shrink-0">
+          <div className="p-3 border-b border-slate-200 flex items-center justify-between bg-slate-50/60">
+            <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5 text-sky-600" />
               สารบัญบทเรียน ({filteredModules.length} บท)
             </span>
           </div>
@@ -267,32 +267,32 @@ export const App: React.FC = () => {
                   onClick={() => handleSelectModule(mod.id)}
                   className={`w-full text-left p-2.5 rounded-xl border transition-all flex items-start gap-2.5 ${
                     isSelected
-                      ? 'bg-cyan-500/15 border-cyan-500/50 shadow-md shadow-cyan-950/50'
-                      : 'bg-slate-900/60 border-slate-800/70 hover:bg-slate-800/60 hover:border-slate-700'
+                      ? 'bg-sky-50 border-sky-400 shadow-sm'
+                      : 'bg-white border-slate-200/80 hover:bg-slate-50 hover:border-slate-300'
                   }`}
                 >
                   <div className="mt-0.5 shrink-0">{getCategoryIcon(mod.category)}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <span className="text-[11px] font-mono font-semibold text-cyan-400">
+                      <span className="text-[11px] font-mono font-semibold text-sky-700">
                         บทที่ {mod.number} • {mod.gradeLevel}
                       </span>
                       {isDone && (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                       )}
                     </div>
                     <p
                       className={`text-xs font-semibold truncate mt-0.5 ${
-                        isSelected ? 'text-white' : 'text-slate-200'
+                        isSelected ? 'text-sky-950' : 'text-slate-800'
                       }`}
                     >
                       {mod.title}
                     </p>
-                    <p className="text-[11px] text-slate-400 truncate mt-0.5">{mod.subtitle}</p>
+                    <p className="text-[11px] text-slate-500 truncate mt-0.5">{mod.subtitle}</p>
                   </div>
                   <ChevronRight
                     className={`w-4 h-4 mt-2 shrink-0 transition ${
-                      isSelected ? 'text-cyan-400 translate-x-0.5' : 'text-slate-600'
+                      isSelected ? 'text-sky-600 translate-x-0.5' : 'text-slate-400'
                     }`}
                   />
                 </button>
@@ -302,9 +302,9 @@ export const App: React.FC = () => {
         </aside>
 
         {/* Center Column: Pillar 1 (3D Interactive Viewport) + Pillar 3 (Live Telemetry & Dynamic Equations) */}
-        <main className="flex-1 flex flex-col min-w-0 bg-slate-950 overflow-hidden">
+        <main className="flex-1 flex flex-col min-w-0 bg-slate-50 overflow-hidden">
           {/* Pillar 1: 3D Interactive Viewport */}
-          <div className="relative flex-1 min-h-[300px] border-b border-slate-800/80">
+          <div className="relative flex-1 min-h-[300px] border-b border-slate-200">
             <PhysicsViewport3D
               moduleId={activeModule.id}
               params={currentParams}
@@ -316,14 +316,14 @@ export const App: React.FC = () => {
 
             {/* Top-Left Overlay: Module Title & Live Metric Badges */}
             <div className="absolute top-3 left-3 right-3 flex flex-wrap items-start justify-between gap-2 pointer-events-none">
-              <div className="bg-slate-900/85 backdrop-blur-md border border-slate-800 px-3.5 py-2 rounded-xl pointer-events-auto max-w-lg">
+              <div className="bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm px-3.5 py-2 rounded-xl pointer-events-auto max-w-lg">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-semibold">
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold">
                     {activeModule.code} ({activeModule.gradeLevel})
                   </span>
-                  <h2 className="text-sm font-bold text-white truncate">{activeModule.title}</h2>
+                  <h2 className="text-sm font-bold text-slate-900 truncate">{activeModule.title}</h2>
                 </div>
-                <p className="text-xs text-slate-400 mt-0.5">{activeModule.subtitle}</p>
+                <p className="text-xs text-slate-600 mt-0.5">{activeModule.subtitle}</p>
               </div>
 
               {/* Live Metrics Cards */}
@@ -331,18 +331,18 @@ export const App: React.FC = () => {
                 {computed.metrics.map((m, idx) => (
                   <div
                     key={idx}
-                    className="bg-slate-900/90 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl min-w-[125px]"
+                    className="bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm px-3 py-1.5 rounded-xl min-w-[125px]"
                   >
-                    <div className="flex items-center justify-between text-[11px] text-slate-400">
+                    <div className="flex items-center justify-between text-[11px] text-slate-500">
                       <span>{m.label}</span>
-                      <LatexFormula math={m.symbol} className="text-slate-300 font-semibold" />
+                      <LatexFormula math={m.symbol} className="text-slate-700 font-semibold" />
                     </div>
                     <div
                       className="text-sm font-mono font-bold mt-0.5"
-                      style={{ color: m.color ?? '#38bdf8' }}
+                      style={{ color: m.color ?? '#0284c7' }}
                     >
                       {m.value}{' '}
-                      <span className="text-xs font-normal text-slate-400">{m.unit}</span>
+                      <span className="text-xs font-normal text-slate-500">{m.unit}</span>
                     </div>
                   </div>
                 ))}
@@ -351,9 +351,9 @@ export const App: React.FC = () => {
 
             {/* Bottom-Left Overlay: 3D Camera Presets & Vector Toggles */}
             <div className="absolute bottom-3 left-3 flex flex-wrap items-center gap-2">
-              <div className="bg-slate-900/90 backdrop-blur-md border border-slate-800 p-1 rounded-xl flex items-center gap-1">
-                <span className="text-[11px] text-slate-400 px-2 flex items-center gap-1">
-                  <Box className="w-3.5 h-3.5 text-cyan-400" /> มุมมอง 3D:
+              <div className="bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm p-1 rounded-xl flex items-center gap-1">
+                <span className="text-[11px] text-slate-600 px-2 flex items-center gap-1 font-medium">
+                  <Box className="w-3.5 h-3.5 text-sky-600" /> มุมมอง 3D:
                 </span>
                 {(
                   [
@@ -368,8 +368,8 @@ export const App: React.FC = () => {
                     onClick={() => setCameraPreset(cam.id)}
                     className={`px-2 py-1 rounded-lg text-[11px] font-medium transition ${
                       cameraPreset === cam.id
-                        ? 'bg-cyan-500 text-slate-950 font-semibold'
-                        : 'text-slate-300 hover:bg-slate-800'
+                        ? 'bg-sky-600 text-white font-semibold shadow-sm'
+                        : 'text-slate-700 hover:bg-slate-100'
                     }`}
                   >
                     {cam.label}
@@ -379,8 +379,8 @@ export const App: React.FC = () => {
                   onClick={() => setCrossSection((c) => !c)}
                   className={`px-2 py-1 rounded-lg text-[11px] font-medium transition flex items-center gap-1 ${
                     crossSection
-                      ? 'bg-purple-500 text-white font-semibold'
-                      : 'text-slate-300 hover:bg-slate-800'
+                      ? 'bg-purple-600 text-white font-semibold shadow-sm'
+                      : 'text-slate-700 hover:bg-slate-100'
                   }`}
                 >
                   <Layers className="w-3 h-3" />
@@ -390,9 +390,9 @@ export const App: React.FC = () => {
 
               {/* 3D Vector Arrows Toggle Pills */}
               {activeModule.vectors.length > 0 && (
-                <div className="bg-slate-900/90 backdrop-blur-md border border-slate-800 p-1 rounded-xl flex items-center gap-1">
-                  <span className="text-[11px] text-slate-400 px-2 flex items-center gap-1">
-                    <Eye className="w-3.5 h-3.5 text-amber-400" /> เวกเตอร์ 3D:
+                <div className="bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm p-1 rounded-xl flex items-center gap-1">
+                  <span className="text-[11px] text-slate-600 px-2 flex items-center gap-1 font-medium">
+                    <Eye className="w-3.5 h-3.5 text-amber-600" /> เวกเตอร์ 3D:
                   </span>
                   {activeModule.vectors.map((vec) => {
                     const active = currentVectors[vec.id] ?? true;
@@ -402,8 +402,8 @@ export const App: React.FC = () => {
                         onClick={() => handleToggleVector(vec.id)}
                         className={`px-2 py-1 rounded-lg text-[11px] font-medium transition flex items-center gap-1.5 border ${
                           active
-                            ? 'bg-slate-800 text-white border-slate-600'
-                            : 'text-slate-500 border-transparent hover:text-slate-300'
+                            ? 'bg-slate-100 text-slate-900 border-slate-300 font-semibold'
+                            : 'text-slate-400 border-transparent hover:text-slate-700'
                         }`}
                       >
                         <span
@@ -419,10 +419,10 @@ export const App: React.FC = () => {
             </div>
 
             {/* Bottom-Right Overlay: Time Manipulation Controls */}
-            <div className="absolute bottom-3 right-3 bg-slate-900/90 backdrop-blur-md border border-slate-800 p-1.5 rounded-xl flex items-center gap-1.5">
+            <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm p-1.5 rounded-xl flex items-center gap-1.5">
               <button
                 onClick={() => setIsPlaying((p) => !p)}
-                className="px-3 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs flex items-center gap-1.5 transition"
+                className="px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs flex items-center gap-1.5 transition shadow-sm"
               >
                 {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                 <span>{isPlaying ? 'หยุดชั่วคราว' : 'เล่นต่อ'}</span>
@@ -434,8 +434,8 @@ export const App: React.FC = () => {
                   onClick={() => setTimeSpeed(spd)}
                   className={`px-2 py-1 rounded-lg text-[11px] font-mono transition ${
                     timeSpeed === spd
-                      ? 'bg-slate-800 text-cyan-300 border border-cyan-500/40 font-semibold'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'bg-sky-50 text-sky-700 border border-sky-300 font-bold'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   {spd}x
@@ -445,7 +445,7 @@ export const App: React.FC = () => {
               <button
                 onClick={handleResetModule}
                 title="รีเซ็ตการทดลอง"
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
+                className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
               </button>
@@ -453,15 +453,15 @@ export const App: React.FC = () => {
           </div>
 
           {/* Pillar 3: Bottom Dock — Dynamic Equations & Synchronized Live Graph */}
-          <div className="h-56 bg-slate-900/40 p-3 grid grid-cols-1 lg:grid-cols-12 gap-3 shrink-0 overflow-y-auto">
+          <div className="h-56 bg-slate-100/80 p-3 grid grid-cols-1 lg:grid-cols-12 gap-3 shrink-0 overflow-y-auto">
             {/* Dynamic Equations Box (7 cols) */}
-            <div className="lg:col-span-7 bg-slate-900/80 border border-slate-800 rounded-xl p-3 flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-white border border-slate-200 shadow-sm rounded-xl p-3 flex flex-col justify-between">
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-semibold text-cyan-400 flex items-center gap-1.5">
+                <span className="text-xs font-bold text-sky-700 flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" />
                   สมการฟิสิกส์ไดนามิกและการแทนค่าเรียลไทม์ (Dynamic Equations)
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">
+                <span className="text-[11px] font-mono text-slate-500">
                   t = {simTime.toFixed(1)} s
                 </span>
               </div>
@@ -470,17 +470,17 @@ export const App: React.FC = () => {
                 {computed.equations.map((eq, idx) => (
                   <div
                     key={idx}
-                    className="bg-slate-950/75 border border-slate-800/80 rounded-lg p-2.5 flex flex-col justify-between"
+                    className="bg-slate-50 border border-slate-200/90 rounded-lg p-2.5 flex flex-col justify-between"
                   >
-                    <div className="text-[11px] text-slate-400 font-medium">{eq.title}</div>
-                    <div className="my-1 text-sm text-cyan-200 overflow-x-auto">
+                    <div className="text-[11px] text-slate-600 font-semibold">{eq.title}</div>
+                    <div className="my-1 text-sm text-sky-900 overflow-x-auto">
                       <LatexFormula math={eq.latexFormula} />
                     </div>
-                    <div className="text-xs text-slate-300 border-t border-slate-800/80 pt-1 flex items-center justify-between flex-wrap gap-1">
-                      <LatexFormula math={eq.liveSubstitution} className="text-slate-400" />
+                    <div className="text-xs text-slate-700 border-t border-slate-200 pt-1 flex items-center justify-between flex-wrap gap-1">
+                      <LatexFormula math={eq.liveSubstitution} className="text-slate-600" />
                       <LatexFormula
                         math={eq.resultText}
-                        className="text-emerald-400 font-semibold"
+                        className="text-emerald-700 font-bold"
                       />
                     </div>
                   </div>
@@ -500,15 +500,15 @@ export const App: React.FC = () => {
         </main>
 
         {/* Right Panel: Pillar 2 (Variable Sliders), Pillar 4 (Theory & Real-World), Pillar 5 (Missions & Quiz) */}
-        <aside className="w-96 border-l border-slate-800/80 bg-slate-900/60 flex flex-col shrink-0">
+        <aside className="w-96 border-l border-slate-200 bg-white flex flex-col shrink-0">
           {/* Tab Switcher */}
-          <div className="grid grid-cols-3 p-2 gap-1 border-b border-slate-800/80 bg-slate-950/50">
+          <div className="grid grid-cols-3 p-2 gap-1 border-b border-slate-200 bg-slate-50">
             <button
               onClick={() => setActiveRightTab('controls')}
               className={`py-2 px-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition ${
                 activeRightTab === 'controls'
-                  ? 'bg-cyan-500 text-slate-950'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                  ? 'bg-sky-600 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <Sliders className="w-3.5 h-3.5" />
@@ -518,8 +518,8 @@ export const App: React.FC = () => {
               onClick={() => setActiveRightTab('theory')}
               className={`py-2 px-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition ${
                 activeRightTab === 'theory'
-                  ? 'bg-cyan-500 text-slate-950'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                  ? 'bg-sky-600 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
@@ -529,8 +529,8 @@ export const App: React.FC = () => {
               onClick={() => setActiveRightTab('mission')}
               className={`py-2 px-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition ${
                 activeRightTab === 'mission'
-                  ? 'bg-cyan-500 text-slate-950'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                  ? 'bg-sky-600 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <HelpCircle className="w-3.5 h-3.5" />
@@ -542,15 +542,15 @@ export const App: React.FC = () => {
             {activeRightTab === 'controls' && (
               <>
                 {/* Pillar 2: Interactive Parameter Sliders */}
-                <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-3.5 space-y-3.5">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-3.5">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-sky-700 flex items-center gap-1.5">
                       <Sliders className="w-3.5 h-3.5" />
                       แผงควบคุมตัวแปรการทดลอง
                     </h3>
                     <button
                       onClick={handleResetModule}
-                      className="text-[11px] text-slate-400 hover:text-cyan-300 flex items-center gap-1"
+                      className="text-[11px] text-slate-500 hover:text-sky-700 flex items-center gap-1 font-medium"
                     >
                       <RotateCcw className="w-3 h-3" /> ค่าเริ่มต้น
                     </button>
@@ -561,14 +561,14 @@ export const App: React.FC = () => {
                     return (
                       <div key={param.key} className="space-y-1.5">
                         <div className="flex items-center justify-between text-xs">
-                          <span className="text-slate-200 font-medium flex items-center gap-1.5">
+                          <span className="text-slate-700 font-medium flex items-center gap-1.5">
                             <span>{param.label}</span>
-                            <span className="px-1.5 py-0.5 rounded bg-slate-800 text-cyan-300 text-[11px]">
+                            <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[11px] font-semibold">
                               <LatexFormula math={param.symbol} />
                             </span>
                           </span>
-                          <span className="font-mono font-bold text-cyan-300">
-                            {val} <span className="text-slate-400 font-normal">{param.unit}</span>
+                          <span className="font-mono font-bold text-sky-700">
+                            {val} <span className="text-slate-500 font-normal">{param.unit}</span>
                           </span>
                         </div>
                         <input
@@ -578,7 +578,7 @@ export const App: React.FC = () => {
                           step={param.step}
                           value={val}
                           onChange={(e) => handleParamChange(param.key, parseFloat(e.target.value))}
-                          className="w-full accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
+                          className="w-full accent-sky-600 h-1.5 bg-slate-200 rounded-lg cursor-pointer"
                         />
                         <div className="flex justify-between text-[10px] font-mono text-slate-500">
                           <span>
@@ -597,35 +597,37 @@ export const App: React.FC = () => {
                 <div
                   className={`rounded-xl p-3.5 border transition-all ${
                     missionEval.passed || completedMissions[activeModule.id]
-                      ? 'bg-emerald-950/30 border-emerald-500/50'
-                      : 'bg-slate-950/80 border-amber-500/40'
+                      ? 'bg-emerald-50/70 border-emerald-400'
+                      : 'bg-amber-50/40 border-amber-300'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
                       <Target
                         className={`w-4 h-4 shrink-0 ${
-                          missionEval.passed ? 'text-emerald-400' : 'text-amber-400'
+                          missionEval.passed ? 'text-emerald-600' : 'text-amber-600'
                         }`}
                       />
-                      <h4 className="text-xs font-bold text-white">{activeModule.mission.title}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">
+                        {activeModule.mission.title}
+                      </h4>
                     </div>
                     {(missionEval.passed || completedMissions[activeModule.id]) && (
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 shrink-0">
                         สำเร็จแล้ว!
                       </span>
                     )}
                   </div>
 
-                  <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-700 mt-2 leading-relaxed">
                     {activeModule.mission.description}
                   </p>
 
-                  <div className="mt-2.5 p-2 rounded-lg bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-cyan-300">
+                  <div className="mt-2.5 p-2 rounded-lg bg-white border border-slate-200 text-[11px] font-mono text-sky-800 font-semibold">
                     สถานะ: {missionEval.progressText}
                   </div>
 
-                  <div className="mt-2 text-[11px] text-amber-300/90 bg-amber-500/10 border border-amber-500/20 rounded-lg p-2">
+                  <div className="mt-2 text-[11px] text-amber-900 bg-amber-100/70 border border-amber-200 rounded-lg p-2">
                     💡 <strong>คำใบ้:</strong> {activeModule.mission.hint}
                   </div>
                 </div>
@@ -635,22 +637,22 @@ export const App: React.FC = () => {
             {activeRightTab === 'theory' && (
               <>
                 {/* Pillar 4: Theory Summary & Real-World Application */}
-                <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-sky-700">
                     สรุปหลักการทางฟิสิกส์
                   </h3>
-                  <p className="text-xs text-slate-200 leading-relaxed">
+                  <p className="text-xs text-slate-700 leading-relaxed">
                     {activeModule.theorySummary}
                   </p>
-                  <div className="space-y-2 pt-2 border-t border-slate-800">
-                    <div className="text-xs font-semibold text-slate-300">จุดสังเกตสำคัญ:</div>
+                  <div className="space-y-2 pt-2 border-t border-slate-200">
+                    <div className="text-xs font-semibold text-slate-800">จุดสังเกตสำคัญ:</div>
                     <ul className="space-y-1.5">
                       {activeModule.keyTakeaways.map((item, i) => (
                         <li
                           key={i}
-                          className="text-xs text-slate-300 flex items-start gap-2 leading-relaxed"
+                          className="text-xs text-slate-700 flex items-start gap-2 leading-relaxed"
                         >
-                          <span className="text-cyan-400 font-bold">•</span>
+                          <span className="text-sky-600 font-bold">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -658,12 +660,14 @@ export const App: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-cyan-950/40 to-slate-950 border border-cyan-500/30 rounded-xl p-4 space-y-2">
-                  <div className="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider">
+                <div className="bg-gradient-to-br from-sky-50 to-white border border-sky-200 rounded-xl p-4 space-y-2">
+                  <div className="text-[11px] font-bold text-sky-700 uppercase tracking-wider">
                     การประยุกต์ใช้ในชีวิตจริงและวิศวกรรม
                   </div>
-                  <h4 className="text-sm font-bold text-white">{activeModule.realWorldTitle}</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <h4 className="text-sm font-bold text-slate-900">
+                    {activeModule.realWorldTitle}
+                  </h4>
+                  <p className="text-xs text-slate-700 leading-relaxed">
                     {activeModule.realWorldDescription}
                   </p>
                 </div>
@@ -671,12 +675,12 @@ export const App: React.FC = () => {
             )}
 
             {activeRightTab === 'mission' && (
-              <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3">
-                <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+                <div className="flex items-center gap-2 text-xs font-bold text-amber-700 uppercase tracking-wider">
                   <HelpCircle className="w-4 h-4" />
                   <span>แบบทดสอบความเข้าใจท้ายบทเรียน</span>
                 </div>
-                <p className="text-xs text-white font-medium leading-relaxed">
+                <p className="text-xs text-slate-900 font-semibold leading-relaxed">
                   {activeModule.quiz.question}
                 </p>
 
@@ -688,12 +692,13 @@ export const App: React.FC = () => {
                     const isThisSelected = selected === idx;
 
                     let btnStyle =
-                      'bg-slate-900 border-slate-800 text-slate-200 hover:border-slate-700';
+                      'bg-white border-slate-200 text-slate-800 hover:border-slate-300';
                     if (isAnswered) {
                       if (isCorrect) {
-                        btnStyle = 'bg-emerald-950/60 border-emerald-500 text-emerald-200';
+                        btnStyle =
+                          'bg-emerald-50 border-emerald-500 text-emerald-900 font-semibold';
                       } else if (isThisSelected) {
-                        btnStyle = 'bg-rose-950/60 border-rose-500 text-rose-200';
+                        btnStyle = 'bg-rose-50 border-rose-500 text-rose-900 font-semibold';
                       }
                     }
 
@@ -709,7 +714,7 @@ export const App: React.FC = () => {
                           {idx + 1}. {opt}
                         </span>
                         {isAnswered && isCorrect && (
-                          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                         )}
                       </button>
                     );
@@ -717,8 +722,8 @@ export const App: React.FC = () => {
                 </div>
 
                 {quizAnswers[activeModule.id] !== undefined && (
-                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 leading-relaxed">
-                    <strong className="text-cyan-400 block mb-1">เฉลยละเอียด:</strong>
+                  <div className="p-3 rounded-lg bg-white border border-slate-200 text-xs text-slate-700 leading-relaxed">
+                    <strong className="text-sky-700 block mb-1">เฉลยละเอียด:</strong>
                     {activeModule.quiz.explanation}
                   </div>
                 )}
