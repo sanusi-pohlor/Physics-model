@@ -1,0 +1,9 @@
+services:
+  physiverse-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: physiverse-lab-3d
+    ports:
+      - "8080:80"
+    restart: unless-stopped
