@@ -1,8 +1,8 @@
 # ⚛️ Physics Model — ห้องปฏิบัติการฟิสิกส์เสมือนจริง 3 มิติ (PhysiVerse Lab 3D)
 
-[![Live Demo on Vercel](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://instant-tempest-7kzmj8m.tmp.now)
+[![Live Demo on Vercel](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://express-juniper-5fqtiwv.tmp.now)
 
-🌐 **เข้าใช้งานเว็บไซต์ออนไลน์ (Live Demo บน Vercel):** **[https://instant-tempest-7kzmj8m.tmp.now](https://instant-tempest-7kzmj8m.tmp.now)**
+🌐 **เข้าใช้งานเว็บไซต์ออนไลน์ (Live Demo บน Vercel):** **[https://express-juniper-5fqtiwv.tmp.now](https://express-juniper-5fqtiwv.tmp.now)**
 
 เว็บแอปพลิเคชันจำลองการทดลองและอธิบายการทำงานของวิชาฟิสิกส์แบบ **3D Interactive Simulation** สำหรับนักเรียนระดับมัธยมศึกษาตอนปลาย (**ม.4 - ม.6 ตามหลักสูตร สสวท.**) ครอบคลุมครบทั้ง **5 หมวดหลัก 20 บทเรียน** พร้อมสมการคณิตศาสตร์ไดนามิก (`KaTeX`) กราฟเรียลไทม์ (`Live Telemetry`) โจทย์ภารกิจท้าทาย (`Gamified Lab Missions`) และแบบทดสอบความเข้าใจท้ายบท
 
